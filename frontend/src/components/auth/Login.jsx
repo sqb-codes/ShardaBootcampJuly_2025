@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
 
@@ -7,6 +8,8 @@ export function Login() {
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate();
 
     const LOGIN_URL = "http://localhost:9898/api/auth/login";
 
@@ -28,6 +31,9 @@ export function Login() {
                     email: '',
                     password: ''
                 });
+                console.log("User logged in successfully:", response.data.user);
+                localStorage.setItem('role', JSON.stringify(response.data.user.role));
+                navigate("/dashboard");
             }
         } catch (error) {
             console.error("Login failed:", error);
