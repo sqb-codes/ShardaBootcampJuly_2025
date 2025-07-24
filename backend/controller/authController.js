@@ -20,3 +20,19 @@ exports.registerUser = async (req, res) => {
         return res.status(500).json({message: "Failed to register user"});
     }
 }
+
+// Login user
+exports.loginUser = async (req, res) => {
+    try {
+        const {email, password} = req.body;
+        // find user by email
+        const user = await User.findOne({email});
+        if(user && (await user.matchPassword(password))) {
+            console.log("User logged in successfully");
+            return res.status(200).json({message: "User logged in successfully", user});
+        }
+    } catch (error) {
+        console.log("User login failed", error);
+        return res.status(500).json({message: "Failed to login user"});
+    }
+}
