@@ -1,0 +1,51 @@
+Backend
+- MVC Based Architecture
+M - Model - Business Logic
+V - View - Presentation Layer - Frontend
+C - Controller - takes request and process it and return response back to user
+
+Setup Node JS
+- npm init -y
+
+backend
+- config
+    - db.js
+- controller
+    - authController.js
+- model
+    - User.js
+- routes
+    - authRoutes.js
+- services
+- middlewares
+    - authMiddleware.js
+- server.js
+
+npm install express
+npm install mongoose
+
+express - for maintaining backend server
+mongoose - to connect with MongoDB
+bcrypt - password hashing
+dotenv - to maintain environment variables
+cors - cross origin resource sharing
+jsonwebtoken - for authentication purpose (for token generation)
+
+
+SQL vs NoSQL
+
+{
+    "name": "John",
+    "email": "john12@gmail.com",
+    "age": 20
+}
+{
+    "name": "Max",
+    "email": "john12@gmail.com",
+    "age": 35,
+    "dob": Date(1990,12,18)
+}
+
+Frontend
+
+
